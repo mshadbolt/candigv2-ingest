@@ -20,7 +20,7 @@ jobs:
                   import os
                   import shlex
                   import pprint
-                  with open('${{ github.rest.repose.listPullRequestsAssociatedWithCommit }}') as fh:
+                  with open('${{ github.rest.repos.listPullRequestsAssociatedWithCommit }}') as fh:
                       event = json.load(fh)
                       pprint.pprint(event)
                       escaped = shlex.quote(event['pull_request']['title'])
