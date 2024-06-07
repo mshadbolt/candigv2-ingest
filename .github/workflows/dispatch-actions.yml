@@ -20,6 +20,7 @@ jobs:
                   import os
                   import shlex
                   with open('${{ github.event_path }}') as fh:
+                      print(event)
                       event = json.load(fh)
                       escaped = shlex.quote(event['pull_request']['title'])
                       print(escaped)    
