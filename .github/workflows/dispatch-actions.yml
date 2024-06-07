@@ -24,10 +24,6 @@ jobs:
                         repo: context.repo.repo,
                       })
                     ).data[0];
-            - name: Pull Request data
-              run: |
-                echo '${{ fromJson(steps.get_pr_data.outputs.result).number }}'
-                echo '${{ fromJson(steps.get_pr_data.outputs.result).title }}'
             - name: Create PR in CanDIGv2
               id: make_pr
               uses: CanDIG/github-action-pr-expanded@mshadbolt/sanitize-input
