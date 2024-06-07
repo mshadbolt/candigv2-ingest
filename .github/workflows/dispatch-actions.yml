@@ -29,6 +29,11 @@ jobs:
                       print(escaped)    
                   with open(os.environ['GITHUB_ENV'], 'a') as fh:
                       print(f'PR_TITLE={escaped}', file=fh)
+            - name: Check env var
+              shell: bash
+              run: |
+                  echo '${{ env.PR_TITLE }}'
+                  echo ${{ env.PR_TITLE }}
             - name: Create PR in CanDIGv2
               id: make_pr
               uses: CanDIG/github-action-pr-expanded@mshadbolt/sanitize-input
